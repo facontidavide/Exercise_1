@@ -43,7 +43,7 @@ publishing rates of 15 KHz, with the former consuming about 70% of the CPU and t
 latter about 60%.
 
 Both subscribers start loosing some messages after 5 KHz, about 3% of them at 15 KHz.
-For some reason the Python implementation seems to be able to miss less messages.
+For some reason the Python implementation seems to be able to miss less messages (<1% only).
 
 
 

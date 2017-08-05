@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 
 import rospy
-from std_msgs.msg import String
+from rate_test.msg import SuperAwesome
 
 class Listener():
     def __init__(self):
 		rospy.init_node('listener', anonymous=True)
-		rospy.Subscriber('chatter', String, self.callback)
+		rospy.Subscriber('chatter', SuperAwesome, self.callback)
 		self.count = 0
 		self.total_msg_count = 0
 		self.prev_time = rospy.get_rostime()

@@ -3,19 +3,20 @@
 
 import rospy
 import sys
-from std_msgs.msg import String
+from rate_test.msg import SuperAwesome
 
 def talker():
 	
-    pub = rospy.Publisher('chatter', String, queue_size=1000)
+    pub = rospy.Publisher('chatter', SuperAwesome, queue_size=1000)
     period = int(sys.argv[1]) 
     rospy.init_node('talker', anonymous=True)
     rate = rospy.Rate(period) 
     prev_time = rospy.get_rostime()
     count = 0
     total_msg_sent = 0
+    hello_str = SuperAwesome()
     while ( (not rospy.is_shutdown()) and total_msg_sent < period*10):
-        hello_str = "hello world %s" % rospy.get_time()
+        hello_str.data = "hello world %s" % rospy.get_time()
         now = rospy.get_rostime()
         diff_time = (now - prev_time).to_sec()
         count += 1
